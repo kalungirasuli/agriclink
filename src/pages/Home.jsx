@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaShippingFast, FaShieldAlt, FaHeadset, FaGift, 
          FaLeaf, FaCheck, FaSeedling, FaGlobeAmericas, FaRecycle } from 'react-icons/fa';
+import backgroundImage from '../assets/background.jpg';
 import './home.css';
 
 const Home = () => {
@@ -83,9 +84,10 @@ const Home = () => {
               Our Story
             </Link>
           </div>
-        </div>
-        <div className="hero-image">
-          <img src="../assets/background.jpg" alt="Fresh Produce" />
+        </div>        <div className="hero-image">
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80" 
+               loading='lazy' 
+               alt="Fresh Produce" />
         </div>
       </section>
 
