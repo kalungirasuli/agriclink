@@ -65,6 +65,33 @@ const Home = () => {
     }
   ];
 
+  const reviews = [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      rating: 5,
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80",
+      text: "The quality of organic produce is exceptional! Love how everything comes fresh from local farms.",
+      date: "May 2025"
+    },
+    {
+      id: 2,
+      name: "Michael Chen",
+      rating: 5,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+      text: "Great service and amazing selection of sustainable products. The free delivery is a huge plus!",
+      date: "June 2025"
+    },
+    {
+      id: 3,
+      name: "Emily Rodriguez",
+      rating: 4,
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+      text: "Love supporting local farmers through AgriLink. The raw honey is my favorite!",
+      date: "June 2025"
+    }
+  ];
+
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -212,6 +239,107 @@ const Home = () => {
           </div>
           <div className="sustainability-image">
             <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854" alt="Sustainable Farming" />
+          </div>
+        </div>
+      </section>
+
+      {/* Carbon Ecosystem Section */}
+      <section className="carbon-ecosystem-section">
+        <div className="container">
+          <div className="carbon-grid">
+            <div className="carbon-content">
+              <h2>Our Carbon Ecosystem</h2>
+              <p className="carbon-subtitle">Making a positive impact on our planet</p>
+              <div className="carbon-features">
+                <div className="carbon-feature">
+                  <div className="carbon-icon">
+                    <FaRecycle />
+                  </div>
+                  <div className="carbon-feature-content">
+                    <h3>Carbon Neutral Delivery</h3>
+                    <p>Our electric vehicle fleet and optimized routes minimize carbon footprint</p>
+                  </div>
+                </div>
+                <div className="carbon-feature">
+                  <div className="carbon-icon">
+                    <FaSeedling />
+                  </div>
+                  <div className="carbon-feature-content">
+                    <h3>Regenerative Farming</h3>
+                    <p>Supporting farmers who use carbon-capturing agricultural practices</p>
+                  </div>
+                </div>
+                <div className="carbon-feature">
+                  <div className="carbon-icon">
+                    <FaLeaf />
+                  </div>
+                  <div className="carbon-feature-content">
+                    <h3>Zero-Waste Packaging</h3>
+                    <p>100% biodegradable or reusable packaging materials</p>
+                  </div>
+                </div>
+              </div>
+              <div className="carbon-stats">
+                <div className="carbon-stat">
+                  <span className="stat-number">-2.5K</span>
+                  <span className="stat-label">Tons CO₂ Offset</span>
+                </div>
+                <div className="carbon-stat">
+                  <span className="stat-number">15K</span>
+                  <span className="stat-label">Trees Planted</span>
+                </div>
+                <div className="carbon-stat">
+                  <span className="stat-number">100%</span>
+                  <span className="stat-label">Renewable Energy</span>
+                </div>
+              </div>
+            </div>
+            <div className="carbon-image">
+              <img 
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80" 
+                alt="Sustainable Farming Practices"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section className="reviews-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>Customer Reviews</h2>
+            <p>What our happy customers say about us</p>
+          </div>
+          <div className="reviews-grid">
+            {reviews.map(review => (
+              <div key={review.id} className="review-card">
+                <div className="review-header">
+                  <div className="reviewer-info">
+                    <img src={review.image} alt={review.name} className="reviewer-image" />
+                    <div>
+                      <h4>{review.name}</h4>
+                      <div className="review-date">{review.date}</div>
+                    </div>
+                  </div>
+                  <div className="rating">
+                    {[...Array(5)].map((_, index) => (
+                      <FaCheck 
+                        key={index} 
+                        className={index < review.rating ? 'star-filled' : 'star-empty'} 
+                      />
+                    ))}
+                  </div>
+                </div>
+                <p className="review-text">{review.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="reviews-footer">
+            <Link to="/reviews" className="btn btn-secondary">
+              View All Reviews <FaArrowRight />
+            </Link>
           </div>
         </div>
       </section>
